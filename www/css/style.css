@@ -507,3 +507,12 @@ textarea.form-control {
 .logged-out {
     display: none;
 }
+.quote-btn {
+  background-color: #8260fa; 
+  color: white;            
+  padding: 12px 18px;      
+  font-size: 14px;           
+}
+
+
+

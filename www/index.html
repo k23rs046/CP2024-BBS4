@@ -161,8 +161,8 @@ function canEditPost(post) {
 function quotePost(postId) {
     const post = $(`#post-${postId}`);
     const content = post.find('.post-content').text();
-     $('#contentInput').val(`引用: "${content}"\n`);
-    
+     $('#contentInput').val(`引用: "${content}\n`);
+    updateCharacterCount('editContent', 'editContentCount', 1000);
 }
 // 投稿のHTML要素を生成
 // 　バグ入りなので要修正（編集・削除機能表示判定が誤っている）
@@ -178,10 +178,10 @@ function createPostElement(post) {
             <button class="btn-delete" onclick="deletePost('${post.id}')">
                 削除
             </button>
-             <button class="btn-quote
+             <button class="quote-btn
              " onclick="quotePost('${post.id}')">
             
-                引用
+                ➩引用
             </button>
         </div>
     ` : '';
@@ -623,6 +623,7 @@ window.addEventListener('unload', function() {
             <div class="modal-footer">
                 <button onclick="handleDelete()" class="btn-danger">削除</button>
                 <button onclick="closeModal('deleteModal')" class="btn-cancel">キャンセル</button>
+                <button id="quote-btn" class="quote-btn">引用する</button>
             </div>
         </div>
     </div>
